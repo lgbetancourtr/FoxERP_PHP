@@ -1,0 +1,1 @@
+insert into usuarios (nombre_usuario,contraseña_usuario,estado_usuario) values ('admin',md5('admin'),1);
