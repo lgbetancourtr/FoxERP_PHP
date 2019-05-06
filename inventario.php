@@ -72,6 +72,7 @@
                 <button class="btn btn-primary" type="submit">Guardar</button>            
             
             </form>
+            <div id="resultados"></div><!-- Carga de datos ajax aqui -->
         </div>        
     </div>
 
@@ -80,37 +81,19 @@
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <!--jquery-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <!--bootstrap-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <!--Inicio bloque JS-->
+    <script src="Js/Inventario.js"></script>
+    <!--Fin bloque JS-->
+
 
     <!--Inicio bloque PHP-->
-    <?php
-    require('config.php');
-    if (isset($_POST['txtCodigoProducto'])){
-        $codigo_producto = $_POST['txtCodigoProducto'];
-        $nombre_producto = $_POST['txtNombreProducto'];
-        $marca_producto = $_POST['txtMarcaProducto'];
-        $precio_compra = $_POST['txtPrecioCompra'];
-        $cantidad_comprada = $_POST['txtCantidadCompra'];
-
-        $query = "INSERT INTO tabla05 (codigo_producto, nombre_producto, marca_producto,precio_compra,cantidad_comprada) VALUES ('$codigo_producto', '$nombre_producto', '$marca_producto', '$precio_compra', '$cantidad_comprada')";
-
-        $result = mysqli_query($con,$query) or die(mysql_error());
-
-        if ($result) {
-            echo "Datos grabados satisfactoriamente";
-        } else {
-            echo "Error: " . $query . "<br>" . mysqli_error($con);
-        }
-        
-        mysqli_close($con);
-    }
-    ?>
+      
+    
     <!--Fin bloque PHP-->
 </body>
 
