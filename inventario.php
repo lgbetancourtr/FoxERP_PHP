@@ -56,8 +56,11 @@
         </div>
     </div>
     
-    <!-- Edit Modal HTML -->
+    <!-- add Modal HTML -->
 	<?php include("Modal/modal_agregar.php");?>
+
+    <!-- edit Modal HTML -->
+	<?php include("Modal/modal_editar.php");?>
 
     <!--popper-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

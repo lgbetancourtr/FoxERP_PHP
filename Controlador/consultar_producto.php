@@ -38,7 +38,7 @@ if($result){
                 <td class='text-right'><?php echo number_format($precio_compra,2);?></td>
                 <td class='text-right'><?php echo $cantidad_comprada;?></td>
                 <td>
-                    <a href="#"  data-target="#editProductModal" class="edit" data-toggle="modal" data-code='<?php echo $product_id;?>' data-name="<?php echo $prod_name?>" data-category="<?php echo $prod_ctry?>" data-stock="<?php echo $prod_qty?>" data-price="<?php echo $price;?>" data-id="<?php echo $product_id; ?>"><i class="material-icons" data-toggle="tooltip" title="Editar" >&#xE254;</i></a>
+                    <a href="#"  data-target="#editProductModal" class="edit" data-toggle="modal" data-id='<?php echo $product_id;?>' data-code='<?php echo $codigo_producto;?>' data-name="<?php echo $nombre_producto?>" data-marca="<?php echo $marca_producto?>" data-precio="<?php echo $precio_compra?>" data-cantidad="<?php echo $cantidad_comprada;?>"><i class="material-icons" data-toggle="tooltip" title="Editar" >&#xE254;</i></a>
                     <a href="#deleteProductModal" class="delete" data-toggle="modal" data-id="<?php echo $product_id;?>"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
                 </td>
             </tr> 

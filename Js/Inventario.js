@@ -27,7 +27,44 @@ $("#frmProducto").submit(function (event) {
         success: function (datos) {
             $("#resultados").html(datos);
             $('#addProductModal').modal('hide');            
+            CargarProductos()
         }
     })
     event.preventDefault();
+})
+
+$("#frmProductoEdit").submit(function (event) {
+    var parametros = $(this).serialize()
+    $.ajax({
+        type: "POST",
+        url: "Controlador/editar_producto.php",
+        data: parametros,
+        beforeSend: function (objeto) {
+            $("#resultados").html("Enviando...");
+        },
+        success: function (datos) {
+            $("#resultados").html(datos);
+            $('#editProductModal').modal('hide');            
+            CargarProductos()
+        }
+    })
+    event.preventDefault();
+})
+
+$("#editProductModal").on('show.bs.modal', function(event){
+    var button = $(event.relatedTarget)
+    var id= button.data('id')
+    var code = button.data('code')
+    var name = button.data('name')
+    var marca = button.data('marca')
+    var precio = button.data('precio')
+    var cantidad = button.data('cantidad')
+
+    $('#IdProducto').val(id)
+    $('#CodigoProducto').val(code)
+    $('#NombreProducto').val(name)
+    $('#MarcaProducto').val(marca)
+    $('#PrecioCompra').val(precio)
+    $('#CantidadCompra').val(cantidad)
+
 })
