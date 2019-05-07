@@ -69,6 +69,12 @@ $("#editProductModal").on('show.bs.modal', function(event){
 
 })
 
+$('#deleteProductModal').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var id = button.data('id') 
+		  $('#delete_id').val(id)
+		})
+
 $( "#delete_product" ).submit(function( event ) {
 		  var parametros = $(this).serialize();
 			$.ajax({
