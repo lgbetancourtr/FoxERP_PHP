@@ -1,14 +1,14 @@
-$(function(){
+$(function () {
     CargarProductos()
 })
 
-function CargarProductos(){
+function CargarProductos() {
     $.ajax({
-        url:'Controlador/consultar_producto.php',        
-        beforeSend: function(objeto){
+        url: 'Controlador/consultar_producto.php',
+        beforeSend: function (objeto) {
             $("#loader").html("Cargando...");
         },
-        success:function(data){
+        success: function (data) {
             $(".outer_div").html(data).fadeIn('slow');
             $("#loader").html("");
         }
@@ -26,7 +26,7 @@ $("#frmProducto").submit(function (event) {
         },
         success: function (datos) {
             $("#resultados").html(datos);
-            $('#addProductModal').modal('hide');            
+            $('#addProductModal').modal('hide');
             CargarProductos()
         }
     })
@@ -44,16 +44,16 @@ $("#frmProductoEdit").submit(function (event) {
         },
         success: function (datos) {
             $("#resultados").html(datos);
-            $('#editProductModal').modal('hide');            
+            $('#editProductModal').modal('hide');
             CargarProductos()
         }
     })
     event.preventDefault();
 })
 
-$("#editProductModal").on('show.bs.modal', function(event){
+$("#editProductModal").on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget)
-    var id= button.data('id')
+    var id = button.data('id')
     var code = button.data('code')
     var name = button.data('name')
     var marca = button.data('marca')
@@ -70,25 +70,25 @@ $("#editProductModal").on('show.bs.modal', function(event){
 })
 
 $('#deleteProductModal').on('show.bs.modal', function (event) {
-		  var button = $(event.relatedTarget) // Button that triggered the modal
-		  var id = button.data('id') 
-		  $('#delete_id').val(id)
-		})
+    var button = $(event.relatedTarget) 
+    var id = button.data('id')
+    $('#delete_id').val(id)
+})
 
-$( "#delete_product" ).submit(function( event ) {
+$("#delete_product").submit(function (event) {
     var parametros = $(this).serialize();
     $.ajax({
-            type: "POST",
-            url: "Controlador/eliminar_producto.php",
-            data: parametros,
-            beforeSend: function(objeto){
-                $("#resultados").html("Enviando...");
-            },
-            success: function(datos){                
-                $("#resultados").html(datos);
-                $('#deleteProductModal').modal('hide');
-                CargarProductos()
-            }
+        type: "POST",
+        url: "Controlador/eliminar_producto.php",
+        data: parametros,
+        beforeSend: function (objeto) {
+            $("#resultados").html("Enviando...");
+        },
+        success: function (datos) {
+            $("#resultados").html(datos);
+            $('#deleteProductModal').modal('hide');
+            CargarProductos()
+        }
     });
     event.preventDefault();
 });
