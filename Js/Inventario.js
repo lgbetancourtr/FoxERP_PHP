@@ -68,3 +68,21 @@ $("#editProductModal").on('show.bs.modal', function(event){
     $('#CantidadCompra').val(cantidad)
 
 })
+
+$( "#delete_product" ).submit(function( event ) {
+		  var parametros = $(this).serialize();
+			$.ajax({
+					type: "POST",
+					url: "ajax/eliminar_producto.php",
+					data: parametros,
+					 beforeSend: function(objeto){
+						$("#resultados").html("Enviando...");
+					  },
+					success: function(datos){
+					$("#resultados").html(datos);
+					load(1);
+					$('#deleteProductModal').modal('hide');
+				  }
+			});
+		  event.preventDefault();
+		});
