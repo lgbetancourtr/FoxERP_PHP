@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FoxERP</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 
 <body>
+    
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
         <!-- Brand/logo -->
         <a class="navbar-brand" href="#">
@@ -21,60 +26,38 @@
         <!-- Links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="administrador.html">Administrador</a>
+                <a class="nav-link" href="administrador.php">Administrador</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="inventario.html">Inventario</a>
+                <a class="nav-link" href="inventario.php">Inventario</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="ventas.html">Ventas</a>
+                <a class="nav-link" href="ventas.php">Ventas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="utilidades.html">Utilidades</a>
+                <a class="nav-link" href="utilidades.php">Utilidades</a>
             </li>
         </ul>
 
     </nav>
-
-    <div class="row">
-        <div class="col col-lg-2"></div>        
-        <div class="col col-lg-6">
-            <h4>Producto</h4>
-       
-            <form id="frmProducto" action="" method="POST" name="frmProducto">
-                
-                <div class="form-group">
-                    <label for="lbCodigoProducto">Código de producto</label>
-                    <input type="text" class="form-control form-control-sm" id="txtCodigoProducto" name="txtCodigoProducto" aria-describedby="Codigo producto" placeholder="Código producto">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>                
-                <div class="form-group">
-                    <label for="lbNombreProducto">Nombre de producto</label>
-                    <input type="text" class="form-control form-control-sm" id="txtNombreProducto" name="txtNombreProducto" aria-describedby="Nombre producto" placeholder="Nombre producto">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>                        
-                <div class="form-group">
-                    <label for="lbMarcaProducto">Marca de producto</label>
-                    <input type="text" class="form-control form-control-sm" id="txtMarcaProducto" name="txtMarcaProducto" aria-describedby="Marca producto" placeholder="Marca producto">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>            
-                <div class="form-group">
-                    <label for="lbPrecioCompra">Precio de compra</label>
-                    <input  type="number" min="1" step="any" class="form-control form-control-sm" id="txtPrecioCompra" name="txtPrecioCompra" aria-describedby="Precio compra" placeholder="Precio compra">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>                        
-                <div class="form-group">
-                    <label for="lbCantidadCompra">Cantidad de compra</label>
-                    <input  type="number" min="1" step="any" class="form-control form-control-sm" id="txtCantidadCompra" name="txtCantidadCompra" aria-describedby="Cantidad compra" placeholder="Cantidad compra">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>Administrar <b>Productos</b></h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#addProductModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar nuevo producto</span></a>
+                    </div>
                 </div>
-            
-                <button class="btn btn-primary" type="submit">Guardar</button>            
-            
-            </form>
-            <div id="resultados"></div><!-- Carga de datos ajax aqui -->
-        </div>        
+            </div>
+            <div class='outer_div'></div>
+        </div>
     </div>
+    
+    <!-- Edit Modal HTML -->
+	<?php include("Modal/modal_agregar.php");?>
 
     <!--popper-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
