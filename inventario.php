@@ -54,6 +54,11 @@
             </div>
             <div class='outer_div'></div>
         </div>
+        <div class="row">
+            <form action="Controlador/generar_pdf.php" method="post">
+                <button type="submit" class="btn btn-info" id="btnPDF"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;<span>PDF</span></button>
+            </form>            
+        </div>
     </div>
     
     <!-- add Modal HTML -->

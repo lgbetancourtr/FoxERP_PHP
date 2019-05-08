@@ -92,3 +92,17 @@ $("#delete_product").submit(function (event) {
     });
     event.preventDefault();
 });
+
+/*
+$("#btnPDF").click(function(event){
+    $.ajax({
+        type: "POST",
+        url: "Controlador/generar_pdf.php",        
+        beforeSend: function (objeto) {
+            $("#resultados").html("Enviando...");
+        },
+        success: function (datos) {
+                        
+        }
+    });
+})*/
